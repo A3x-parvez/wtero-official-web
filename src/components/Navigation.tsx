@@ -41,7 +41,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/ccf21b99-863e-4886-8f91-869a8332e841.png" 
               alt="Wtero Logo" 
-              className="h-8 w-auto"
+              className="h-9 w-auto"
             />
             <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent font-poppins">
               Wtero
