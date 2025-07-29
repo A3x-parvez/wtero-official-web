@@ -37,12 +37,15 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/47492f9e-1979-4c48-b272-11674b855cde.png" 
+              src="/lovable-uploads/ccf21b99-863e-4886-8f91-869a8332e841.png" 
               alt="Wtero Logo" 
               className="h-10 w-auto"
             />
+            <span className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent font-poppins">
+              Wtero
+            </span>
           </div>
 
           {/* Desktop Navigation */}
