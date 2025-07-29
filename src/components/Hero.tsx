@@ -5,113 +5,52 @@ import heroBackground from "@/assets/hero-tech-bg.jpg";
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* AI Neural Network Background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background/95 to-background/90">
-        {/* Neural Network Nodes */}
-        <div className="absolute inset-0">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={`neuron-${i}`}
-              className="absolute w-3 h-3 bg-primary rounded-full animate-glow-pulse"
-              style={{
-                left: `${15 + (i % 4) * 20}%`,
-                top: `${20 + Math.floor(i / 4) * 25}%`,
-                animationDelay: `${i * 0.3}s`,
-                boxShadow: '0 0 20px hsl(210 100% 60% / 0.8)',
-              }}
-            />
-          ))}
-        </div>
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={heroBackground} 
+          alt="Tech AI background with data streams and circuits" 
+          className="w-full h-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background/60"></div>
+      </div>
 
-        {/* Neural Network Connections */}
-        <svg className="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="neural-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(210 100% 60%)" />
-              <stop offset="50%" stopColor="hsl(280 100% 65%)" />
-              <stop offset="100%" stopColor="hsl(160 100% 50%)" />
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge> 
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          
-          {/* Neural connections */}
-          {[...Array(15)].map((_, i) => {
-            const x1 = 15 + ((i % 4) * 20);
-            const y1 = 20 + (Math.floor(i / 4) * 25);
-            const x2 = 15 + (((i + 1) % 4) * 20);
-            const y2 = 20 + (Math.floor((i + 1) / 4) * 25);
-            
-            return (
-              <line
-                key={`connection-${i}`}
-                x1={`${x1}%`}
-                y1={`${y1}%`}
-                x2={`${x2}%`}
-                y2={`${y2}%`}
-                stroke="url(#neural-gradient)"
-                strokeWidth="2"
-                filter="url(#glow)"
-                className="animate-circuit-flow"
-                style={{ 
-                  animationDelay: `${i * 0.2}s`,
-                  strokeDasharray: '5,5'
-                }}
-              />
-            );
-          })}
-        </svg>
-
-        {/* AI Data Streams */}
-        <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={`stream-${i}`}
-              className="absolute w-1 bg-gradient-to-t from-transparent via-accent to-transparent animate-matrix-rain opacity-60"
-              style={{
-                left: `${10 + i * 12}%`,
-                height: '200px',
-                animationDelay: `${i * 0.8}s`,
-                animationDuration: '4s',
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Floating AI Elements */}
-        {[...Array(6)].map((_, i) => (
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 z-10">
+        {/* Floating Particles */}
+        {[...Array(20)].map((_, i) => (
           <div
-            key={`ai-element-${i}`}
-            className="absolute opacity-30 animate-float"
+            key={i}
+            className="absolute w-2 h-2 bg-primary rounded-full animate-particle-float opacity-60"
             style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 2) * 40}%`,
-              animationDelay: `${i * 1.2}s`,
-              fontSize: '24px',
-              color: 'hsl(210 100% 60%)',
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${4 + Math.random() * 4}s`,
             }}
-          >
-            {['🧠', '⚡', '🔗', '💫', '🔮', '⭐'][i]}
-          </div>
+          />
         ))}
 
-        {/* Robotic Grid Overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/20 to-transparent" 
-               style={{
-                 backgroundImage: `
-                   linear-gradient(90deg, hsl(210 100% 60% / 0.1) 1px, transparent 1px),
-                   linear-gradient(hsl(210 100% 60% / 0.1) 1px, transparent 1px)
-                 `,
-                 backgroundSize: '50px 50px'
-               }}
-          />
-        </div>
+        {/* Circuit Lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="circuit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="hsl(210 100% 60%)" />
+              <stop offset="100%" stopColor="hsl(280 100% 65%)" />
+            </linearGradient>
+          </defs>
+          {[...Array(5)].map((_, i) => (
+            <path
+              key={i}
+              d={`M${i * 200},0 L${i * 200},${window.innerHeight} M0,${i * 150} L${window.innerWidth},${i * 150}`}
+              stroke="url(#circuit-gradient)"
+              strokeWidth="1"
+              fill="none"
+              className="animate-circuit-flow"
+              style={{ animationDelay: `${i * 0.5}s` }}
+            />
+          ))}
+        </svg>
       </div>
 
       {/* Content */}
