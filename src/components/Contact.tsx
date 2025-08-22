@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Send, MessageSquare, Clock, Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { Mail, MapPin, Send, MessageSquare, Clock, Linkedin, Twitter, Github, Instagram, Facebook } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
@@ -18,19 +18,19 @@ const Contact = () => {
     //   content: "+1 (555) 123-4567",
     //   description: "Mon-Fri 9AM-6PM EST"
     // },
-    {
-      icon: <MapPin className="w-6 h-6 text-secondary" />,
-      title: "Located",
-      content: "Kolkata-West Bengal, India",
-      description: "Schedule an appointment"
-    }
+    // {
+    //   icon: <MapPin className="w-6 h-6 text-secondary" />,
+    //   title: "Located",
+    //   content: "Kolkata-West Bengal, India",
+    //   description: "Schedule an appointment"
+    // }
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", url: "#", icon: <Linkedin className="w-6 h-6" /> },
-    { name: "Twitter", url: "#", icon: <Twitter className="w-6 h-6" /> },
-    { name: "GitHub", url: "#", icon: <Github className="w-6 h-6" /> },
-    { name: "Instagram", url: "#", icon: <Instagram className="w-6 h-6" /> }
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/wtero-tech/", icon: <Linkedin className="w-6 h-6" /> },
+    { name: "Whatsapp", url: "https://www.whatsapp.com/channel/0029Vb6tHAc0wajyJV4Wfu1s", icon: <MessageSquare className="w-6 h-6" /> },
+    { name: "Facebook", url: " https://www.facebook.com/share/1CsFxqg4YD/", icon: <Facebook className="w-6 h-6" /> },
+    { name: "Instagram", url: "https://www.instagram.com/wteroofficial/", icon: <Instagram className="w-6 h-6" /> }
   ];
 
   return (
@@ -171,12 +171,8 @@ const Contact = () => {
                     <span>10:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Saturday</span>
+                    <span>Saturday - Sunday</span>
                     <span>10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
                   </div>
                 </div>
               </CardContent>

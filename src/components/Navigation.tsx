@@ -20,8 +20,8 @@ const Navigation = () => {
     { name: "Services", href: "#services" },
     { name: "AI Innovation", href: "#ai-innovation" },
     { name: "Portfolio", href: "#portfolio" },
-    { name: "Reviews", href: "#reviews" },
-    { name: "Blog", href: "#blog" },
+    // { name: "Reviews", href: "#reviews" },
+    // { name: "Blog", href: "#blog" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -40,7 +40,7 @@ const Navigation = () => {
           <div className="flex items-center space-x-2">
             <img 
               // src="/lovable-uploads/ccf21b99-863e-4886-8f91-869a8332e841.png" 
-              src="/lovable-uploads/wtero_main.png" 
+              src="/uploads/wtero_main.png" 
               alt="Wtero Logo" 
               className="h-9 w-auto"
             />

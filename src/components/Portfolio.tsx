@@ -44,14 +44,14 @@ const Portfolio = () => {
       technologies: ["Next.js", "PostgreSQL", "Redis", "Email Automation"],
       comingSoon: true
     },
-    {
-      title: "IoT Management System",
-      category: "Enterprise",
-      description: "Smart device monitoring and control platform",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
-      technologies: ["IoT", "Cloud Computing", "Real-time Monitoring", "Dashboard"],
-      comingSoon: true
-    }
+    // {
+    //   title: "IoT Management System",
+    //   category: "Enterprise",
+    //   description: "Smart device monitoring and control platform",
+    //   image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
+    //   technologies: ["IoT", "Cloud Computing", "Real-time Monitoring", "Dashboard"],
+    //   comingSoon: true
+    // }
   ];
 
   return (

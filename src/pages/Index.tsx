@@ -4,8 +4,8 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import AIInnovation from "@/components/AIInnovation";
 import Portfolio from "@/components/Portfolio";
-import Reviews from "@/components/Reviews";
-import Blog from "@/components/Blog";
+// import Reviews from "@/components/Reviews";
+// import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -18,8 +18,8 @@ const Index = () => {
       <Services />
       <AIInnovation />
       <Portfolio />
-      <Reviews />
-      <Blog />
+      {/* <Reviews /> */}
+      {/* <Blog /> */}
       <Contact />
       <Footer />
     </div>

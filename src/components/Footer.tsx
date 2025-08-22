@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, MapPin, ArrowUp, Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { url } from "inspector";
+import { Mail, MapPin, ArrowUp, Github, Instagram, Linkedin, Twitter, MessageCircle, Facebook } from "lucide-react";
+import { URL } from "url";
 
 const Footer = () => {
   const quickLinks = [
@@ -127,9 +129,9 @@ const Footer = () => {
                 <p className="text-sm text-muted-foreground mb-3">Follow us on:</p>
                 <div className="flex gap-3">
                   {[
-                    { name: "LinkedIn", icon: <Linkedin className="w-6 h-6" /> },
-                    { name: "Twitter", icon: <Twitter className="w-6 h-6" /> },
-                    { name: "GitHub", icon: <Github className="w-6 h-6" /> },
+                    { name: "LinkedIn",URL:"https://www.linkedin.com/company/wtero-tech/", icon: <Linkedin className="w-6 h-6" /> },
+                    { name: "Whatsapp", icon: <MessageCircle className="w-6 h-6" /> },
+                    { name: "Facebook", icon: <Facebook className="w-6 h-6" /> },
                     { name: "Instagram", icon: <Instagram className="w-6 h-6" /> }
                   ].map((social, index) => (
                     <a

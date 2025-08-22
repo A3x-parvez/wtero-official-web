@@ -98,7 +98,7 @@ const About = () => {
                   "We don't just build websites – we craft digital experiences that transform businesses 
                   and create lasting impact in the digital world."
                 </p>
-                <div className="flex justify-center space-x-6">
+                {/* <div className="flex justify-center space-x-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold">24/7</div>
                     <div className="text-sm opacity-75">Support</div>
@@ -111,7 +111,7 @@ const About = () => {
                     <div className="text-2xl font-bold">∞</div>
                     <div className="text-sm opacity-75">Innovation</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
