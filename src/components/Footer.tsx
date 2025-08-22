@@ -117,22 +117,25 @@ const Footer = () => {
                 Subscribe to our newsletter for the latest tech insights and updates.
               </p>
               <form action="https://formsubmit.co/rijwanoolkarim143r@gmail.com" method="POST" className="space-y-3">
-                <input type="hidden" name="_subject" value="Newsletter Subscription" />
-                <Input 
-                  type="email" 
-                  name="email"
-                  placeholder="Enter your email" 
-                  className="bg-background/50"
-                  required
-                />
-                <Button type="submit" variant="cta" className="w-full">
-                  Subscribe
-                </Button>
+              <input type="hidden" name="_subject" value="Newsletter Subscription" />
+              <input type="hidden" name="_next" value="https://www.wtero.com" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <Input 
+                type="email" 
+                name="email"
+                placeholder="Enter your email" 
+                className="bg-background/50"
+                required
+              />
+              <Button type="submit" variant="cta" className="w-full">
+                Subscribe
+              </Button>
               </form>
-              
-              {/* Social Links */}
-              <div className="mt-6">
-                <p className="text-sm text-muted-foreground mb-3">Follow us on:</p>
+
+            {/* Social Links */}
+            <div className="mt-6">
+              <p className="text-sm text-muted-foreground mb-3">Follow us on:</p>
                 <div className="flex gap-3">
                   {[
                     { name: "LinkedIn", url: "https://www.linkedin.com/company/wtero-tech/", icon: <Linkedin className="w-6 h-6" /> },

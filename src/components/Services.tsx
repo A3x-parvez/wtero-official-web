@@ -2,44 +2,49 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Globe, ShoppingCart, Smartphone, Search, Palette, Shield } from "lucide-react";
 import servicesBackground from "@/assets/services-bg.jpg";
-
 const Services = () => {
   const services = [
     {
       icon: <Globe className="w-8 h-8 text-primary" />,
       title: "Website Development",
       description: "Custom, responsive websites that captivate your audience and drive conversions.",
-      features: ["Responsive Design", "SEO Optimized", "Fast Loading", "Modern UI/UX"]
+      features: ["Responsive Design", "SEO Optimized", "Fast Loading", "Modern UI/UX"],
+      isAvailable: true
     },
     {
       icon: <ShoppingCart className="w-8 h-8 text-accent" />,
       title: "E-Commerce Solutions",
       description: "Powerful online stores that maximize sales and provide seamless shopping experiences.",
-      features: ["Payment Integration", "Inventory Management", "Mobile Commerce", "Analytics"]
+      features: ["Payment Integration", "Inventory Management", "Mobile Commerce", "Analytics"],
+      isAvailable: true
     },
     {
       icon: <Smartphone className="w-8 h-8 text-secondary" />,
       title: "Mobile Development",
       description: "Native and cross-platform mobile apps that engage users on every device.",
-      features: ["iOS & Android", "Cross-Platform", "Push Notifications", "Offline Support"]
+      features: ["iOS & Android", "Cross-Platform", "Push Notifications", "Offline Support"],
+      isAvailable: false
     },
     {
       icon: <Search className="w-8 h-8 text-primary-glow" />,
       title: "SEO & Marketing",
       description: "Comprehensive digital marketing strategies that boost your online presence.",
-      features: ["Keyword Research", "Content Strategy", "Local SEO", "Performance Tracking"]
+      features: ["Keyword Research", "Content Strategy", "Local SEO", "Performance Tracking"],
+      isAvailable: true
     },
     {
       icon: <Palette className="w-8 h-8 text-accent-glow" />,
       title: "Branding & Design",
       description: "Compelling brand identities that resonate with your target audience.",
-      features: ["Logo Design", "Brand Guidelines", "UI/UX Design", "Marketing Materials"]
+      features: ["Logo Design", "Brand Guidelines", "UI/UX Design", "Marketing Materials"],
+      isAvailable: true
     },
     {
       icon: <Shield className="w-8 h-8 text-secondary-glow" />,
       title: "Digital Transformation",
       description: "End-to-end digital solutions that modernize your business operations.",
-      features: ["Process Automation", "Cloud Migration", "Security Audits", "Training & Support"]
+      features: ["Process Automation", "Cloud Migration", "Security Audits", "Training & Support"],
+      isAvailable: false
     }
   ];
 
@@ -88,7 +93,7 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="group hover:scale-105 transition-all duration-300 h-full">
+            <Card key={index} className="group hover:scale-105 transition-all duration-300 h-full flex flex-col rounded-2xl hover:shadow-glow-secondary">
               <CardHeader>
                 <div className="mb-4 group-hover:animate-glow-pulse">
                   <div className="p-3 bg-card-border/20 rounded-lg w-fit">
@@ -98,8 +103,8 @@ const Services = () => {
                 <CardTitle className="text-xl">{service.title}</CardTitle>
                 <CardDescription>{service.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-2 mb-6">
+              <CardContent className="flex flex-col flex-grow">
+                <div className="space-y-2 mb-6 flex-grow">
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
@@ -107,9 +112,19 @@ const Services = () => {
                     </div>
                   ))}
                 </div>
-                <Button variant="outline" className="w-full group-hover:border-primary/40">
-                  Learn More
-                </Button>
+                <div className="pt-2">
+                  {service.isAvailable ? (
+                    <div className="inline-flex items-center justify-center w-full px-3 py-3 text-base font-medium text-center text-green-400 bg-green-900/20 border border-green-700 rounded-md">
+                      <span className="w-2 h-2 mr-2 bg-green-400 rounded-full animate-pulse"></span>
+                      Service Available
+                    </div>
+                  ) : (
+                    <div className="inline-flex items-center justify-center w-full px-3 py-3 text-base font-medium text-center text-gray-400 bg-gray-900/20 border border-gray-700 rounded-md">
+                      <span className="w-2 h-2 mr-2 bg-gray-400 rounded-full"></span>
+                      Currently Unavailable
+                    </div>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}

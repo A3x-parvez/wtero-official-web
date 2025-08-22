@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bot, Brain, Zap, MessageSquare, Workflow, BarChart3 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import aiInnovationImage from "@/assets/ai-innovation.jpg";
 
 const AIInnovation = () => {
@@ -9,19 +10,22 @@ const AIInnovation = () => {
       icon: <MessageSquare className="w-8 h-8 text-primary" />,
       title: "AI Chatbots",
       description: "Intelligent conversational agents that provide 24/7 customer support and engagement.",
-      features: ["Natural Language Processing", "Multi-language Support", "CRM Integration", "Analytics Dashboard"]
+      features: ["Natural Language Processing", "Multi-language Support", "CRM Integration", "Analytics Dashboard"],
+      isAvailable: true
     },
     {
       icon: <Workflow className="w-8 h-8 text-accent" />,
       title: "Process Automation",
       description: "Streamline operations with intelligent automation that reduces costs and errors.",
-      features: ["Workflow Automation", "Data Processing", "Report Generation", "Task Scheduling"]
+      features: ["Workflow Automation", "Data Processing", "Report Generation", "Task Scheduling"],
+      isAvailable: true
     },
     {
       icon: <BarChart3 className="w-8 h-8 text-secondary" />,
       title: "Predictive Analytics",
       description: "Harness the power of data to make informed decisions and predict future trends.",
-      features: ["Sales Forecasting", "Customer Insights", "Market Analysis", "Risk Assessment"]
+      features: ["Sales Forecasting", "Customer Insights", "Market Analysis", "Risk Assessment"],
+      isAvailable: true
     }
   ];
 
@@ -87,7 +91,7 @@ const AIInnovation = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img 
-              src={aiInnovationImage} 
+              src={aiInnovationImage}
               alt="AI Innovation" 
               className="w-full h-auto rounded-2xl shadow-float"
             />
@@ -124,7 +128,7 @@ const AIInnovation = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {aiSolutions.map((solution, index) => (
-            <Card key={index} className="group hover:scale-105 transition-all duration-300">
+            <Card key={index} className="group hover:scale-105 transition-all duration-300 rounded-2xl hover:shadow-glow-secondary">
               <CardHeader>
                 <div className="mb-4 group-hover:animate-glow-pulse">
                   <div className="p-3 bg-card-border/20 rounded-lg w-fit">
@@ -143,9 +147,19 @@ const AIInnovation = () => {
                     </div>
                   ))}
                 </div>
-                <Button variant="outline" className="w-full group-hover:border-primary/40">
-                  Learn More
-                </Button>
+                <div className="pt-2">
+                  {solution.isAvailable ? (
+                    <div className="inline-flex items-center justify-center w-full px-3 py-3 text-base font-medium text-center text-green-400 bg-green-900/20 border border-green-700 rounded-md">
+                      <span className="w-2 h-2 mr-2 bg-green-400 rounded-full animate-pulse"></span>
+                      Service Available
+                    </div>
+                  ) : (
+                    <div className="inline-flex items-center justify-center w-full px-3 py-3 text-base font-medium text-center text-gray-400 bg-gray-900/20 border border-gray-700 rounded-md">
+                      <span className="w-2 h-2 mr-2 bg-gray-400 rounded-full"></span>
+                      Currently Unavailable
+                    </div>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}
