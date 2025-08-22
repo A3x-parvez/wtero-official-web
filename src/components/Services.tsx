@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Globe, ShoppingCart, Smartphone, Search, Palette, Shield } from "lucide-react";
+import { Globe, ShoppingCart, Smartphone, Search, Palette, Shield, MessageSquare,Bot } from "lucide-react";
 import servicesBackground from "@/assets/services-bg.jpg";
 const Services = () => {
   const services = [
@@ -39,13 +39,22 @@ const Services = () => {
       features: ["Logo Design", "Brand Guidelines", "UI/UX Design", "Marketing Materials"],
       isAvailable: true
     },
+    // {
+    //   icon: <Shield className="w-8 h-8 text-secondary-glow" />,
+    //   title: "Digital Transformation",
+    //   description: "End-to-end digital solutions that modernize your business operations.",
+    //   features: ["Process Automation", "Cloud Migration", "Security Audits", "Training & Support"],
+    //   isAvailable: false
+    // },
     {
-      icon: <Shield className="w-8 h-8 text-secondary-glow" />,
-      title: "Digital Transformation",
-      description: "End-to-end digital solutions that modernize your business operations.",
-      features: ["Process Automation", "Cloud Migration", "Security Audits", "Training & Support"],
-      isAvailable: false
+      icon: <Bot className="w-8 h-8 text-secondary-glow" />,
+      title: "AI Chatbot Solutions",
+      description: "Smart AI-powered chatbots for WhatsApp and websites to handle customer support, queries, and automation.",
+      features: ["WhatsApp Integration", "24/7 Customer Support", "Train on your data (PDF/Docs/Website)", "Customizable Flows", "Multilingual Support"],
+      isAvailable: true
     }
+
+
   ];
 
   return (
