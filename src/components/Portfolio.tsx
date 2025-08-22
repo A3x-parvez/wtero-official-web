@@ -2,13 +2,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 
+import chatpng from "@/assets/ai_chatbot.png";
+import ecommerce from "@/assets/ecommerce.png";
+import business from "@/assets/buisness.png";
+import clinicpng from "@/assets/medicalpng.png";
+import saas from "@/assets/saas.png";
+
 const Portfolio = () => {
   const projects = [
     {
       title: "E-Commerce Platform",
       category: "Web Development",
       description: "Modern e-commerce solution with AI-powered recommendations",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+      image: ecommerce,
       technologies: ["React", "Node.js", "AI/ML", "Payment Integration"],
       comingSoon: true
     },
@@ -16,7 +22,7 @@ const Portfolio = () => {
       title: "AI Chatbot Suite",
       category: "AI Innovation",
       description: "Intelligent customer service automation platform",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+      image: chatpng,
       technologies: ["Python", "NLP", "Machine Learning", "API Integration"],
       comingSoon: true
     },
@@ -24,35 +30,28 @@ const Portfolio = () => {
       title: "Business Dashboard",
       category: "Web Application",
       description: "Real-time analytics and business intelligence platform",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      image: business,
       technologies: ["React", "D3.js", "REST APIs", "Real-time Data"],
       comingSoon: true
     },
     {
-      title: "Mobile Banking App",
-      category: "Mobile Development",
-      description: "Secure mobile banking with biometric authentication",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
-      technologies: ["React Native", "Blockchain", "Biometrics", "Security"],
-      comingSoon: true
+      title: "Clinic Website & Appointment Management",
+      category: "Web Development",
+      description: "A complete clinic website with online appointment booking, patient management, and doctor scheduling features.",
+      image: clinicpng, // make sure to import your clinic image like: import clinicpng from "@/assets/clinic.png";
+      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Appointment System", "Authentication"],
+      comingSoon: false
     },
     {
       title: "SaaS Marketing Platform",
       category: "Full Stack",
       description: "Complete marketing automation and CRM solution",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: saas,
       technologies: ["Next.js", "PostgreSQL", "Redis", "Email Automation"],
       comingSoon: true
-    },
-    // {
-    //   title: "IoT Management System",
-    //   category: "Enterprise",
-    //   description: "Smart device monitoring and control platform",
-    //   image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
-    //   technologies: ["IoT", "Cloud Computing", "Real-time Monitoring", "Dashboard"],
-    //   comingSoon: true
-    // }
+    }
   ];
+
 
   return (
     <section id="portfolio" className="py-20 relative overflow-hidden">
