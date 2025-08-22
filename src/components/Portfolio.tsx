@@ -87,8 +87,8 @@ const Portfolio = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
-            <Card key={index} className="group hover:scale-105 transition-all duration-300 overflow-hidden">
-              <div className="relative">
+            <Card key={index} className="group hover:scale-105 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-t-lg">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -104,14 +104,14 @@ const Portfolio = () => {
                 )}
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm" className="bg-white/90 text-background">
+                    {/* <Button variant="outline" size="sm" className="bg-white/90 text-background">
                       <ExternalLink className="w-4 h-4 mr-1" />
                       View
                     </Button>
                     <Button variant="outline" size="sm" className="bg-white/90 text-background">
                       <Github className="w-4 h-4 mr-1" />
                       Code
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </div>
