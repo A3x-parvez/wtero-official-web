@@ -65,7 +65,7 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold font-poppins mb-6 leading-tight">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Your Imagination,
+             YOUR IMAGINATION
             </span>
             <br />
             <span className="text-foreground">Our Code</span>

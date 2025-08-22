@@ -99,9 +99,12 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <span className="text-muted-foreground text-sm hover:text-primary transition-colors duration-300 cursor-pointer">
+                    <button
+                      onClick={() => scrollToSection("#services")}
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors duration-300 cursor-pointer"
+                    >
                       {service}
-                    </span>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -113,30 +116,35 @@ const Footer = () => {
               <p className="text-muted-foreground text-sm mb-4">
                 Subscribe to our newsletter for the latest tech insights and updates.
               </p>
-              <div className="space-y-3">
+              <form action="https://formsubmit.co/rijwanoolkarim143r@gmail.com" method="POST" className="space-y-3">
+                <input type="hidden" name="_subject" value="Newsletter Subscription" />
                 <Input 
                   type="email" 
+                  name="email"
                   placeholder="Enter your email" 
                   className="bg-background/50"
+                  required
                 />
-                <Button variant="cta" className="w-full">
+                <Button type="submit" variant="cta" className="w-full">
                   Subscribe
                 </Button>
-              </div>
+              </form>
               
               {/* Social Links */}
               <div className="mt-6">
                 <p className="text-sm text-muted-foreground mb-3">Follow us on:</p>
                 <div className="flex gap-3">
                   {[
-                    { name: "LinkedIn",URL:"https://www.linkedin.com/company/wtero-tech/", icon: <Linkedin className="w-6 h-6" /> },
-                    { name: "Whatsapp", icon: <MessageCircle className="w-6 h-6" /> },
-                    { name: "Facebook", icon: <Facebook className="w-6 h-6" /> },
-                    { name: "Instagram", icon: <Instagram className="w-6 h-6" /> }
+                    { name: "LinkedIn", url: "https://www.linkedin.com/company/wtero-tech/", icon: <Linkedin className="w-6 h-6" /> },
+                    { name: "Whatsapp", url: "https://www.whatsapp.com/channel/0029Vb6tHAc0wajyJV4Wfu1s", icon: <MessageCircle className="w-6 h-6" /> },
+                    { name: "Facebook", url: "https://www.facebook.com/share/1CsFxqg4YD/", icon: <Facebook className="w-6 h-6" /> },
+                    { name: "Instagram", url: "https://www.instagram.com/wteroofficial/", icon: <Instagram className="w-6 h-6" /> }
                   ].map((social, index) => (
                     <a
                       key={index}
-                      href="#"
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-10 h-10 bg-card border border-card-border rounded-lg flex items-center justify-center hover:border-primary/40 hover:scale-110 transition-all duration-300 hover:shadow-neon"
                     >
                       <span className="text-lg">{social.icon}</span>
