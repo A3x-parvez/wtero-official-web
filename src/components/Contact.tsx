@@ -1,10 +1,69 @@
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Send, MessageSquare, Clock, Linkedin, Twitter, Github, Instagram, Facebook } from "lucide-react";
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    projectType: 'Website Development',
+    message: ''
+  });
+  const [status, setStatus] = useState({ success: false, error: false, message: '' });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Note: The name in the template params should match your EmailJS template.
+    // For example, if your template uses {{from_name}}, your parameter should be from_name.
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      to_name: 'Wtero Team', // Or any name you prefer
+      from_email: formData.email,
+      company: formData.company,
+      project_type: formData.projectType,
+      message: formData.message,
+    };
+
+    emailjs.send(
+      'service_09e572i',   // Your EmailJS service ID
+      'template_cjzyqw5',  // Your EmailJS template ID
+      templateParams,
+      'RcqWeZ65a53l4rjhC'     // Your EmailJS Public Key
+    )
+    .then((result) => {
+        console.log('Email sent successfully:', result.text);
+        setStatus({ success: true, error: false, message: "✅ Message sent successfully! We'll get back to you soon." });
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          company: '',
+          projectType: 'Website Development',
+          message: ''
+        });
+        setTimeout(() => setStatus({ success: false, error: false, message: '' }), 4000);
+    })
+    .catch((error) => {
+        console.error('Error sending email:', error.text);
+        setStatus({ success: false, error: true, message: '❌ Something went wrong. Please try again.' });
+        setTimeout(() => setStatus({ success: false, error: false, message: '' }), 4000);
+    });
+  };
+
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
@@ -12,18 +71,6 @@ const Contact = () => {
       content: "contact@wtero.com",
       description: "Send us an email anytime"
     },
-    // {
-    //   icon: <Phone className="w-6 h-6 text-accent" />,
-    //   title: "Call Us",
-    //   content: "+1 (555) 123-4567",
-    //   description: "Mon-Fri 9AM-6PM EST"
-    // },
-    // {
-    //   icon: <MapPin className="w-6 h-6 text-secondary" />,
-    //   title: "Located",
-    //   content: "Kolkata-West Bengal, India",
-    //   description: "Schedule an appointment"
-    // }
   ];
 
   const socialLinks = [
@@ -45,7 +92,7 @@ const Contact = () => {
             </radialGradient>
           </defs>
           <circle cx="20%" cy="20%" r="100" fill="url(#contact-gradient)" className="animate-float" />
-          <circle cx="80%" cy="80%" r="150" fill="url(#contact-gradient)" className="animate-float" style={{ animationDelay: "3s" }} />
+          <circle cx="80%" cy="80%" r="150" fill="url(#contact-gradient)" style={{ animationDelay: "3s" }} />
         </svg>
       </div>
 
@@ -63,7 +110,7 @@ const Contact = () => {
             <span className="text-foreground">Amazing Together</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your business with cutting-edge technology? Get in touch with our team 
+            Ready to transform your business with cutting-edge technology? Get in touch with our team
             and let's discuss how we can bring your vision to life.
           </p>
         </div>
@@ -78,52 +125,66 @@ const Contact = () => {
               </p>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">First Name</label>
-                  <Input placeholder="John" className="bg-background/50" />
+              <form onSubmit={handleSubmit}>
+                <div className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">First Name</label>
+                      <Input name="firstName" placeholder="John" className="bg-background/50" value={formData.firstName} onChange={handleInputChange} required />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">Last Name</label>
+                      <Input name="lastName" placeholder="Doe" className="bg-background/50" value={formData.lastName} onChange={handleInputChange} required />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Email</label>
+                    <Input name="email" type="email" placeholder="john@example.com" className="bg-background/50" value={formData.email} onChange={handleInputChange} required />
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Company</label>
+                    <Input name="company" placeholder="Your Company Name" className="bg-background/50" value={formData.company} onChange={handleInputChange} />
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Project Type</label>
+                    <select name="projectType" className="w-full p-3 rounded-lg border border-input bg-background/50 text-foreground" value={formData.projectType} onChange={handleInputChange} required>
+                      <option value="Website Development">Website Development</option>
+                      <option value="E-Commerce Solution">E-Commerce Solution</option>
+                      <option value="AI Integration">AI Integration</option>
+                      <option value="Mobile App">Mobile App</option>
+                      <option value="Digital Transformation">Digital Transformation</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Message</label>
+                    <Textarea 
+                      name="message"
+                      placeholder="Tell us about your project..." 
+                      rows={4}
+                      className="bg-background/50"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+
+                  {status.message && (
+                    <div className={`${status.success ? 'bg-green-100 border-green-400 text-green-700' : 'bg-red-100 border-red-400 text-red-700'} px-4 py-3 rounded`}>
+                      {status.message}
+                    </div>
+                  )}
+                  
+                  <Button type="submit" variant="hero" className="w-full group">
+                    <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
+                    Send Message
+                  </Button>
                 </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">Last Name</label>
-                  <Input placeholder="Doe" className="bg-background/50" />
-                </div>
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Email</label>
-                <Input type="email" placeholder="john@example.com" className="bg-background/50" />
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Company</label>
-                <Input placeholder="Your Company Name" className="bg-background/50" />
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Project Type</label>
-                <select className="w-full p-3 rounded-lg border border-input bg-background/50 text-foreground">
-                  <option>Website Development</option>
-                  <option>E-Commerce Solution</option>
-                  <option>AI Integration</option>
-                  <option>Mobile App</option>
-                  <option>Digital Transformation</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Message</label>
-                <Textarea 
-                  placeholder="Tell us about your project..." 
-                  rows={4}
-                  className="bg-background/50"
-                />
-              </div>
-              
-              <Button variant="hero" className="w-full group">
-                <Send className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
-                Send Message
-              </Button>
+              </form>
             </CardContent>
           </Card>
 
@@ -195,23 +256,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        {/* Quick Contact CTA */}
-        {/* <div className="text-center">
-          <Card className="bg-card/30 backdrop-blur-sm border border-card-border shadow-card">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-                Ready to Start Your Project?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Schedule a free consultation and let's discuss how we can help transform your business.
-              </p>
-              <Button variant="cta" size="lg">
-                Schedule Free Consultation
-              </Button>
-            </CardContent>
-          </Card>
-        </div> */}
       </div>
     </section>
   );
