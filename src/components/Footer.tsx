@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
+import { Mail, MapPin, ArrowUp, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
@@ -61,15 +61,15 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-sm">
                   <Mail className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">hello@wtero.com</span>
+                  <span className="text-muted-foreground">contact@wtero.com</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm">
+                {/* <div className="flex items-center gap-3 text-sm">
                   <Phone className="w-4 h-4 text-primary" />
                   <span className="text-muted-foreground">+1 (555) 123-4567</span>
-                </div>
+                </div> */}
                 <div className="flex items-center gap-3 text-sm">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">Tech Hub, Innovation District</span>
+                  <span className="text-muted-foreground">Kolkata-West Bengal, India</span>
                 </div>
               </div>
             </div>
@@ -127,10 +127,10 @@ const Footer = () => {
                 <p className="text-sm text-muted-foreground mb-3">Follow us on:</p>
                 <div className="flex gap-3">
                   {[
-                    { name: "LinkedIn", icon: "🔗" },
-                    { name: "Twitter", icon: "🐦" },
-                    { name: "GitHub", icon: "💻" },
-                    { name: "Instagram", icon: "📱" }
+                    { name: "LinkedIn", icon: <Linkedin className="w-6 h-6" /> },
+                    { name: "Twitter", icon: <Twitter className="w-6 h-6" /> },
+                    { name: "GitHub", icon: <Github className="w-6 h-6" /> },
+                    { name: "Instagram", icon: <Instagram className="w-6 h-6" /> }
                   ].map((social, index) => (
                     <a
                       key={index}

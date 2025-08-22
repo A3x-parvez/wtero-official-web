@@ -141,7 +141,7 @@ const Portfolio = () => {
         </div>
 
         {/* Portfolio CTA */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="bg-card/50 backdrop-blur-sm border border-card-border rounded-2xl p-8 shadow-card">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
               Ready to Start Your Project?
@@ -159,7 +159,7 @@ const Portfolio = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

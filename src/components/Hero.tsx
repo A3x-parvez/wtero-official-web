@@ -79,10 +79,18 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button variant="hero" size="xl" className="group">
+            <Button
+              variant="hero"
+              size="xl"
+              className="group"
+              onClick={() => {
+                const el = document.getElementById('contact-form');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+          >
               Get Free Consultation
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          </Button>
             <Button variant="outline" size="xl">
               View Our Work
             </Button>
@@ -108,12 +116,12 @@ const Hero = () => {
       </div>
 
       {/* Floating CTA Button */}
-      <div className="fixed bottom-8 right-8 z-50">
+      {/* <div className="fixed bottom-8 right-8 z-50">
         <Button variant="floating" size="lg" className="shadow-2xl">
           <Sparkles className="w-5 h-5 mr-2" />
           Start Project
         </Button>
-      </div>
+      </div> */}
     </section>
   );
 };

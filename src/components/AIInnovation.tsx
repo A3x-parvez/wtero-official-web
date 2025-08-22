@@ -115,10 +115,10 @@ const AIInnovation = () => {
               ))}
             </div>
 
-            <Button variant="hero" size="lg" className="w-full sm:w-auto">
+            {/* <Button variant="hero" size="lg" className="w-full sm:w-auto">
               <Bot className="w-5 h-5 mr-2" />
               Explore AI Solutions
-            </Button>
+            </Button> */}
           </div>
         </div>
 

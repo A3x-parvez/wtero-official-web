@@ -2,35 +2,35 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock } from "lucide-react";
+import { Mail, MapPin, Send, MessageSquare, Clock, Linkedin, Twitter, Github, Instagram } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6 text-primary" />,
       title: "Email Us",
-      content: "hello@wtero.com",
+      content: "contact@wtero.com",
       description: "Send us an email anytime"
     },
-    {
-      icon: <Phone className="w-6 h-6 text-accent" />,
-      title: "Call Us",
-      content: "+1 (555) 123-4567",
-      description: "Mon-Fri 9AM-6PM EST"
-    },
+    // {
+    //   icon: <Phone className="w-6 h-6 text-accent" />,
+    //   title: "Call Us",
+    //   content: "+1 (555) 123-4567",
+    //   description: "Mon-Fri 9AM-6PM EST"
+    // },
     {
       icon: <MapPin className="w-6 h-6 text-secondary" />,
-      title: "Visit Us",
-      content: "Tech Hub, Innovation District",
+      title: "Located",
+      content: "Kolkata-West Bengal, India",
       description: "Schedule an appointment"
     }
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", url: "#", icon: "🔗" },
-    { name: "Twitter", url: "#", icon: "🐦" },
-    { name: "GitHub", url: "#", icon: "💻" },
-    { name: "Instagram", url: "#", icon: "📱" }
+    { name: "LinkedIn", url: "#", icon: <Linkedin className="w-6 h-6" /> },
+    { name: "Twitter", url: "#", icon: <Twitter className="w-6 h-6" /> },
+    { name: "GitHub", url: "#", icon: <Github className="w-6 h-6" /> },
+    { name: "Instagram", url: "#", icon: <Instagram className="w-6 h-6" /> }
   ];
 
   return (
@@ -68,7 +68,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div id="contact-form" className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Form */}
           <Card className="shadow-float">
             <CardHeader>
@@ -168,7 +168,7 @@ const Contact = () => {
                 <div className="space-y-2 text-white/90">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
-                    <span>9:00 AM - 6:00 PM</span>
+                    <span>10:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Saturday</span>
@@ -201,7 +201,7 @@ const Contact = () => {
         </div>
 
         {/* Quick Contact CTA */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Card className="bg-card/30 backdrop-blur-sm border border-card-border shadow-card">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
@@ -215,7 +215,7 @@ const Contact = () => {
               </Button>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </section>
   );

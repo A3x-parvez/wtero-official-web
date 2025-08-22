@@ -196,7 +196,7 @@ const Blog = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-gradient-primary p-8 md:p-12 rounded-2xl shadow-float text-center">
+        {/* <div className="bg-gradient-primary p-8 md:p-12 rounded-2xl shadow-float text-center">
           <h3 className="text-3xl font-bold text-white mb-4">
             Stay Updated with Tech Trends
           </h3>
@@ -214,7 +214,7 @@ const Blog = () => {
               Subscribe
             </Button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -62,7 +62,7 @@ const Navigation = () => {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary transition-all duration-300 group-hover:w-full"></span>
                 </button>
               ))}
-              <Button variant="cta" size="sm">Get Free Consultation</Button>
+              {/* <Button variant="cta" size="sm">Get Free Consultation</Button> */}
             </div>
           </div>
 
@@ -91,9 +91,9 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
-              <div className="px-3 py-2">
+              {/* <div className="px-3 py-2">
                 <Button variant="cta" size="sm" className="w-full">Get Free Consultation</Button>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
