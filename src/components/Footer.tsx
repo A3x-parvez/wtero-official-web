@@ -8,6 +8,37 @@ import { useState } from "react";
 const Footer = () => {
   const [subscribed, setSubscribed] = useState(false);
 
+  // --- START: FIX ---
+  // 1. Create a function to handle the form submission
+  const handleSubscribe = async (event) => {
+    // Prevent the form from reloading the page
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    try {
+      const response = await fetch("https://formsubmit.co/rijwanoolkarim404@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      // 2. Only set subscribed to true if the submission was successful
+      if (response.ok) {
+        setSubscribed(true);
+      } else {
+        // You can add error handling here if you want
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+  // --- END: FIX ---
+
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -41,8 +72,8 @@ const Footer = () => {
         <div className="w-full h-full"
           style={{
             backgroundImage: `radial-gradient(circle at 20% 80%, hsl(210 100% 60%) 1px, transparent 1px),
-                             radial-gradient(circle at 80% 20%, hsl(280 100% 65%) 1px, transparent 1px),
-                             radial-gradient(circle at 40% 40%, hsl(160 100% 50%) 1px, transparent 1px)`,
+                                  radial-gradient(circle at 80% 20%, hsl(280 100% 65%) 1px, transparent 1px),
+                                  radial-gradient(circle at 40% 40%, hsl(160 100% 50%) 1px, transparent 1px)`,
             backgroundSize: "80px 80px"
           }}
         />
@@ -66,15 +97,15 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-sm">
                   <Mail className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">
+                  <a href="mailto:contact@wtero.com" className="text-muted-foreground">
                     contact@wtero.com
-                  </span>
+                  </a>
                 </div>
 
-                  {/* <div className="flex items-center gap-3 text-sm">
+                {/* <div className="flex items-center gap-3 text-sm">
                   <Phone className="w-4 h-4 text-primary" />
                   <span className="text-muted-foreground">+1 (555) 123-4567</span>
-                </div> */}                
+                </div> */}
                 <div className="flex items-center gap-3 text-sm">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="text-muted-foreground">
@@ -134,9 +165,8 @@ const Footer = () => {
 
               {!subscribed ? (
                 <form
-                  action="https://formsubmit.co/rijwanoolkarim143r@gmail.com"
-                  method="POST"
-                  onSubmit={() => setSubscribed(true)}
+                  // 3. Use the new function here
+                  onSubmit={handleSubscribe}
                   className="space-y-3"
                 >
                   <input
